@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="js/script.js"></script>
+	<style>
+		.slider{
+			width: 960px;
+			height: 500px;
+			border: 1px solid red;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.slider .slider__wrapper{
+			width: 200%;
+			font-size: 0;
+			
+		}
+
+		.slider .slider__slide{
+			width: 50%;
+			background-color: #369;
+			font-size: 16px;
+			display: inline-block;
+			height: 500px;
+			box-sizing: border-box;
+			border: 5px solid black;
+		}
+
+		.slider .slider__arrow{
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 5px solid black;
+			cursor: pointer;
+		}
+
+		.slider .slider__arrow-left{
+			left: 20px;
+		}
+
+		.slider .slider__arrow-right{
+			right: 20px;
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="slider">
+		<span class="slider__arrow slider__arrow-left"></span>
+		<span class="slider__arrow slider__arrow-right"></span>
+		<div class="slider__wrapper"><div class="slider__slide"><div class="x">1</div></div><div class="slider__slide"><div class="x">2</div></div><div class="slider__slide"><div class="x">3</div></div><div class="slider__slide"><div class="x">4</div></div><div class="slider__slide"><div class="x">5</div></div></div></div>
+</body>
+</html>
