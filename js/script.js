@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 	wrapper=document.querySelector('.slider__wrapper');
 	let arrowLeft=sliderElement.querySelector('.slider__arrow-left');
 	let arrowRight=sliderElement.querySelector('.slider__arrow-right');
+	requestAnimationFrame(animateSlider);
 	sliderElement.addEventListener('mouseout', ()=>{
 		stop=false;
 		animationStartTime;
