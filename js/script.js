@@ -4,6 +4,7 @@ let animationStartTime;
 
 let wrapper;
 let stop=false;
+let stop2=true;
 let animationTime=null;
 let animationStartTime2;
 
@@ -21,11 +22,16 @@ function animateSlider(t){
 	} 
 	wrapper.style.marginLeft='-'+progress+'%';
 	if (stop===false){ requestAnimationFrame(animateSlider);
-	}
+		}
 	else wrapper.style.marginLeft='';
+	
 }
 
-function nextSlide(t){
+
+
+function _nextSlide(t){
+	stop2=false;
+	console.log(stop2);
 	if(!animationStartTime) animationStartTime=t;
 	animationTime=t-animationStartTime;
 	progress=animationTime*100/5000;
@@ -34,11 +40,32 @@ function nextSlide(t){
 		wrapper.append(wrapper.children[0]);
 	} 
 	wrapper.style.marginLeft='-'+progress+'%';
-	if (progress<100) requestAnimationFrame(nextSlide);
+	if (progress<100) {
+	
+	requestAnimationFrame(_nextSlide);
+	console.log(stop2);
+	}
 	else wrapper.style.marginLeft='';
-	stop===false;
+	stop2=true;
+
+
+	
 
 }
+
+function nextSlide(){
+	if(stop2===false){
+		
+		return;
+	} 
+	else if(stop2===true){
+	
+	requestAnimationFrame(_nextSlide);
+	
+	}
+}
+
+
 
 function priviousSlide(t){
 	if(!animationStartTime){
@@ -74,14 +101,17 @@ document.addEventListener('DOMContentLoaded',()=>{
 		requestAnimationFrame(animateSlider);
 	})
 	sliderElement.addEventListener('mouseover', ()=>{
+		
+		
 		stop=true;
 		
 	})
 	arrowRight.addEventListener('click', ()=>{
-		stop===true;
+		
 		animationStartTime=null;
 		wrapper.style.marginLeft='';
-		requestAnimationFrame(nextSlide);
+		nextSlide();
+		
 	})
 	arrowLeft.addEventListener('click', ()=>{
 		stop=true;
